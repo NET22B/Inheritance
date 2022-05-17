@@ -6,11 +6,20 @@ namespace Inheritance
     {
         static void Main(string[] args)
         {
-            IPerson employee = new Employee();
-            IPerson admin = new Admin();
 
-            employee.Do();
-            admin.Do();
+            IDrivable vehicle = new Vehicle("Volvo");
+            IDrivable car = new Car("740", "Volvo");
+
+            Console.WriteLine(vehicle.Drive(10));
+            Console.WriteLine(  car.Drive(10));
+
+           // string brand = vehicle.Brand;
+
+            //IPerson employee = new Employee();
+            //IPerson admin = new Admin();
+
+            //employee.Do();
+            //admin.Do();
 
             //employee.Salary = 50000;
             //Person person = new Person();
