@@ -6,11 +6,23 @@ using System.Threading.Tasks;
 
 namespace Inheritance
 {
-    internal class Person
+
+    public interface IPerson
     {
-        public string Name { get; set; } 
-    } 
-    
+        string Name { get; set; }
+        void Do();
+    }
+
+    internal class Person : IPerson
+    {
+        public string Name { get; set; }
+
+        public virtual void Do()
+        {
+            Console.WriteLine("Person doing");
+        }
+    }
+
     internal class Employee : Person
     {
         public int Salary { get; set; }
@@ -19,6 +31,12 @@ namespace Inheritance
     internal class Admin : Employee
     {
         public string Department { get; set; }
+
+        public override void Do()
+        {
+            base.Do();
+            Console.WriteLine("Admin doing");
+        }
     }
 
 
