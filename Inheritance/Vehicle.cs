@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 namespace Inheritance
 {
 
-    //public interface IDrivable
-    //{
+    public interface IDrivable
+    {
 
-    //    string Drive(int distance);
-    //}
+        string Drive(int distance);
+    }
 
-    public abstract class AbstractVehicle
+    public abstract class AbstractVehicle : IDrivable
     {
 
         public virtual string Drive(int distance)
@@ -45,9 +45,9 @@ namespace Inheritance
 
     internal class FuelVehicle : Vehicle
     {
-        public FuelVehicle(string regNo, string brand = "default brand") :base(brand, regNo)
+        public FuelVehicle(string regNo, string brand = "default brand") : base(brand, regNo)
         {
-            
+
         }
 
         public override string Drive(int distance)
@@ -56,6 +56,11 @@ namespace Inheritance
         }
 
     }
+
+
+    //internal class FuelCar : FuelVehicle
+    //{
+    //}
 
     public class BiCycle : AbstractVehicle
     {
