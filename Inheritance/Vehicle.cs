@@ -12,25 +12,40 @@ namespace Inheritance
 
     //    string Drive(int distance);
     //}
-    internal class Vehicle 
-    {
-        public string Brand { get; set; }
 
-        public Vehicle(string brand)
-        {
-            Brand = brand;
-        }
+    public abstract class AbstractVehicle
+    {
 
         public virtual string Drive(int distance)
         {
             return $"{this.GetType().Name} drove for {distance}";
         }
-           
+
+        public abstract string Turn();
+    }
+
+
+
+    internal class Vehicle : AbstractVehicle
+    {
+        public string Brand { get; private set; }
+        public string RegNo { get; }
+
+        public Vehicle(string brand, string regNo)
+        {
+            Brand = brand;
+            RegNo = regNo;
+        }
+
+        public override string Turn()
+        {
+            return "Vehicle Turns";
+        }
     }
 
     internal class FuelVehicle : Vehicle
     {
-        public FuelVehicle(string brand = "default brand") :base(brand)
+        public FuelVehicle(string regNo, string brand = "default brand") :base(brand, regNo)
         {
             
         }
@@ -40,5 +55,23 @@ namespace Inheritance
             return base.Drive(distance) + " From Car";
         }
 
+    }
+
+    public class BiCycle : AbstractVehicle
+    {
+        public override string Turn()
+        {
+            return "Bicycle turns";
+        }
+
+        public override string Drive(int distance)
+        {
+            return string.Format("Bicycle starts pedaling {0}", distance);
+        }
+
+        public string SpecialMethod()
+        {
+            return "From specialmethod";
+        }
     }
 }
