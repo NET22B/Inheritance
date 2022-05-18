@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 namespace Inheritance
 {
 
-    public interface IDrivable
-    {
+    //public interface IDrivable
+    //{
 
-        string Drive(int distance);
-    }
-    internal class Vehicle : IDrivable
+    //    string Drive(int distance);
+    //}
+    internal class Vehicle 
     {
         public string Brand { get; set; }
 
@@ -28,12 +28,11 @@ namespace Inheritance
            
     }
 
-    internal class Car : Vehicle
+    internal class FuelVehicle : Vehicle
     {
-        public string Make { get; set; }
-        public Car(string make, string brand = "default brand") :base(brand)
+        public FuelVehicle(string brand = "default brand") :base(brand)
         {
-            Make = make;
+            
         }
 
         public override string Drive(int distance)
