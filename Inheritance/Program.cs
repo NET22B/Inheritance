@@ -6,13 +6,14 @@ namespace Inheritance
     {
         static void Main(string[] args)
         {
-            FuelVehicle fuelVehicle = new(regNo: "ABC123", "SAAB");
-            AbstractVehicle abstractVehicle = new FuelVehicle("AAA222", "Volvo");
+            FuelVehicle fuelVehicle = new(regNo: "ABC123", 100, "SAAB");
+            AbstractVehicle abstractVehicle = new FuelVehicle("AAA222", 200, "Volvo");
             var bicycle = new BiCycle();
             AbstractVehicle bicycle2 = new BiCycle();
 
             var vehicles = new List<AbstractVehicle>()
             {
+                new FuelCar(),
                 fuelVehicle,
                 abstractVehicle,
                 bicycle,
@@ -23,36 +24,36 @@ namespace Inheritance
 
             foreach (AbstractVehicle vehicle in vehicles)
             {
-                Console.WriteLine(vehicle.Turn());
+                Console.WriteLine(vehicle.Drive(50));
 
                 //BiCycle biCycle = (BiCycle)vehicle;
                 //biCycle.SpecialMethod(); 
 
-                BiCycle? biCycle = vehicle as BiCycle;
+               // BiCycle? biCycle = vehicle as BiCycle;
 
-                if (biCycle != null)
-                {
-                    biCycle.SpecialMethod();
-                }
-
-                biCycle?.SpecialMethod();
-
-
-               //if( vehicle.GetType() == typeof(BiCycle))
+               // if (biCycle != null)
                // {
-
+               //     biCycle.SpecialMethod();
                // }
 
-                if(vehicle is BiCycle)
-                {
-                    var biCycle2 = (BiCycle)vehicle;
-                    biCycle2.SpecialMethod();
-                } 
+               // biCycle?.SpecialMethod();
+
+
+               ////if( vehicle.GetType() == typeof(BiCycle))
+               //// {
+
+               //// }
+
+               // if(vehicle is BiCycle)
+               // {
+               //     var biCycle2 = (BiCycle)vehicle;
+               //     biCycle2.SpecialMethod();
+               // } 
                 
-                if(vehicle is BiCycle bicycle3)
-                {
-                    Console.WriteLine(bicycle3.SpecialMethod());
-                }
+               // if(vehicle is BiCycle bicycle3)
+               // {
+               //     Console.WriteLine(bicycle3.SpecialMethod());
+               // }
             }
            
          
