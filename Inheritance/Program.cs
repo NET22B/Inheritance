@@ -6,12 +6,17 @@ namespace Inheritance
     {
         static void Main(string[] args)
         {
+            var name = "Kalle";
+            var fullname = name.AddString("Anka");
+            Console.WriteLine(fullname);
+            
+
             FuelVehicle fuelVehicle = new(regNo: "ABC123", 100, "SAAB");
             AbstractVehicle abstractVehicle = new FuelVehicle("AAA222", 200, "Volvo");
             var bicycle = new BiCycle();
             AbstractVehicle bicycle2 = new BiCycle();
 
-            var vehicles = new List<AbstractVehicle>()
+            var vehicles = new List<IDrivable>()
             {
                 new FuelCar(),
                 fuelVehicle,
@@ -22,7 +27,13 @@ namespace Inheritance
                 new Vehicle("Volvo", "ABG234")
             };
 
-            foreach (AbstractVehicle vehicle in vehicles)
+            var vehicles2 = new IDrivable[] {fuelVehicle, bicycle};
+
+            vehicles2.PrintAll();
+
+            vehicles.PrintAll();
+
+            foreach (var vehicle in vehicles)
             {
                 Console.WriteLine(vehicle.Drive(50));
 
