@@ -41,10 +41,19 @@ namespace Inheritance
         {
             return "Vehicle Turns";
         }
+
+        public string Test()
+        {
+            return "From Vehicle";
+        }
     }
 
     internal class FuelVehicle : Vehicle
     {
+        public new string Test()
+        {
+            return "From FuelVehicle";
+        }
 
         private double fuelLevel;
 

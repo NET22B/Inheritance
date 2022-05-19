@@ -8,9 +8,9 @@ namespace Inheritance
 {
     internal static class Extensions
     {
-        public static string AddString(this string first, string second)
+        public static string AddString(this string name, string second)
         {
-            return first + " " + second;
+            return name + " " + second;
         }
 
         //public static void PrintAll(this List<IDrivable> source)

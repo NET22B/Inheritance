@@ -37,6 +37,17 @@ namespace Inheritance
             base.Do();
             Console.WriteLine("Admin doing");
         }
+
+        public void TestException(string input)
+        {
+            if (string.IsNullOrWhiteSpace(input))
+            {
+                throw new ArgumentException($"'{nameof(input)}' cannot be null or whitespace.", nameof(input));
+            }
+
+
+
+        }
     }
 
 

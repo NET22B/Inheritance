@@ -6,10 +6,48 @@ namespace Inheritance
     {
         static void Main(string[] args)
         {
+            try
+            {
+                Admin ad = new();
+                ad.TestException(null);
+
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+               throw;
+            }
+            catch(Exception) 
+            { 
+            
+            }
+            finally
+            {
+
+            }
+
+            Vehicle vehicle1 = new Vehicle("Volvo", "ABC123");
+            vehicle1.Test();
+
+            Vehicle vehicle2 = new FuelVehicle("", 34);
+
+            FuelVehicle fuelVehicle55 = (FuelVehicle)vehicle2;
+            FuelVehicle fuelVehicle555 = vehicle2 as FuelVehicle;
+
+            if (vehicle2 is FuelVehicle fff)
+            {
+                fff.Test();
+            }
+
+
+            var resf = fuelVehicle55.Test();
+            var res = vehicle2.Test();
+
+
             var name = "Kalle";
             var fullname = name.AddString("Anka");
             Console.WriteLine(fullname);
-            
+
 
             FuelVehicle fuelVehicle = new(regNo: "ABC123", 100, "SAAB");
             AbstractVehicle abstractVehicle = new FuelVehicle("AAA222", 200, "Volvo");
@@ -27,7 +65,7 @@ namespace Inheritance
                 new Vehicle("Volvo", "ABG234")
             };
 
-            var vehicles2 = new IDrivable[] {fuelVehicle, bicycle};
+            var vehicles2 = new IDrivable[] { fuelVehicle, bicycle };
 
             vehicles2.PrintAll();
 
@@ -40,34 +78,34 @@ namespace Inheritance
                 //BiCycle biCycle = (BiCycle)vehicle;
                 //biCycle.SpecialMethod(); 
 
-               // BiCycle? biCycle = vehicle as BiCycle;
+                // BiCycle? biCycle = vehicle as BiCycle;
 
-               // if (biCycle != null)
-               // {
-               //     biCycle.SpecialMethod();
-               // }
+                // if (biCycle != null)
+                // {
+                //     biCycle.SpecialMethod();
+                // }
 
-               // biCycle?.SpecialMethod();
+                // biCycle?.SpecialMethod();
 
 
-               ////if( vehicle.GetType() == typeof(BiCycle))
-               //// {
+                ////if( vehicle.GetType() == typeof(BiCycle))
+                //// {
 
-               //// }
+                //// }
 
-               // if(vehicle is BiCycle)
-               // {
-               //     var biCycle2 = (BiCycle)vehicle;
-               //     biCycle2.SpecialMethod();
-               // } 
-                
-               // if(vehicle is BiCycle bicycle3)
-               // {
-               //     Console.WriteLine(bicycle3.SpecialMethod());
-               // }
+                // if(vehicle is BiCycle)
+                // {
+                //     var biCycle2 = (BiCycle)vehicle;
+                //     biCycle2.SpecialMethod();
+                // } 
+
+                // if(vehicle is BiCycle bicycle3)
+                // {
+                //     Console.WriteLine(bicycle3.SpecialMethod());
+                // }
             }
-           
-         
+
+
         }
     }
 }
