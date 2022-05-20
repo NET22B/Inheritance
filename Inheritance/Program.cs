@@ -31,9 +31,13 @@ namespace Inheritance
 
             Vehicle vehicle2 = new FuelVehicle("", 34);
 
+            //Unsafe cast exception om det inte fungerar att casta
             FuelVehicle fuelVehicle55 = (FuelVehicle)vehicle2;
+
+            //Null om casten inte fungerar
             FuelVehicle fuelVehicle555 = vehicle2 as FuelVehicle;
 
+            //Om vehicle2 är en fuelvehicle casta och lägg resultatet i varibeln fff
             if (vehicle2 is FuelVehicle fff)
             {
                 fff.Test();
